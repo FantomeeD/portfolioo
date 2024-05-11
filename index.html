@@ -13,8 +13,6 @@
 	<title> {{ titre }} | Portfolio Nolhan Desseigne</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="css/stylesheet.css">
-	{% block css %}
-	{% endblock css %}
 </head>
 
 <body>
@@ -36,13 +34,9 @@
 	</a>
 
 	<main role="main">
-		{# Ceci est un commentaire en TWIG #}
-		{# La ligne ci-dessous définit un bloc TWIG avec un contenu par défault.
-		On peut spécialiser dans les modèles fils en remplaçant le contenu par un autre #}
-		{% block main %}
 
 		<section class="texte">
-			<h1> {{ article.titre }} </h1>
+			<h1> Nolhan Desseigne Portfolio </h1>
 			<p> {{ article.texte }} </p>
 			<p> {{ article.texte2 }} </p>
 			<p> {{ article.texte3a }} </p>
@@ -228,11 +222,9 @@
 			</figure>
 		</div>
 
-		{% endblock %}
 	</main>
 
 	<footer role="contentinfo">
-		{% block footer %}
 
 		<nav class="sub-nav" role="navigation">
 			<!-- Menu présent dans toutes les pages héritant (extends) de ce modèle -->
@@ -242,8 +234,6 @@
 		</nav>
 
 		<p> 2024 © Copyright DESSEIGNE All rights Reserved. </p>
-
-		{% endblock footer %}
 	</footer>
 </body>
 
