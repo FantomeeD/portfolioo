@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+	Ce fichier HTML sert de base à tous les modèles en héritant.
+	Il contient les éléments qui seront présents sur toutes les pages du site.
+	En particulier les entêtes HTML, les header et footer et éventuellement le menu principal
+-->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="images/swtor-icon.png">
+	<title> {{ titre }} | Portfolio Nolhan Desseigne</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="css/stylesheet.css">
+	{% block css %}
+	{% endblock css %}
+</head>
+
+<body>
+	<header role="banner">
+		<section class="header">
+			<nav class="main-nav flex" role="navigation">
+				<!-- Menu présent dans toutes les pages héritant (extends) de ce modèle -->
+				<a href="index.php" aria-label="va sur la page acceuil">Accueil</a>
+				<a href="contact.php" aria-label="page des contacts"> Contacts </a>
+				<a href="#" aria-label="anglais"> Anglais </a>
+			</nav>
+		</section>
+	</header>
+
+	<a href="#" class="btn" aria-label="boutton pour remonter en haut de la page">
+		<span class="icone accueil" aria-hidden="true"></span>
+   		<span class="hors-ecran">Accueil</span>
+		<i class="bi bi-caret-up-fill"></i>
+	</a>
+
+	<main role="main">
+		{# Ceci est un commentaire en TWIG #}
+		{# La ligne ci-dessous définit un bloc TWIG avec un contenu par défault.
+		On peut spécialiser dans les modèles fils en remplaçant le contenu par un autre #}
+		{% block main %}
+
+		<section class="texte">
+			<h1> {{ article.titre }} </h1>
+			<p> {{ article.texte }} </p>
+			<p> {{ article.texte2 }} </p>
+			<p> {{ article.texte3a }} </p>
+			<p> {{ article.texte3 }} </p>
+		</section>
+		
+		<section class="texte">
+			<h2> {{ article.sous_titre }} </h2>
+			<p> {{ article.texte4 }} </p>
+		</section>
+
+		<h2> {{ article.sous_titre2 }} </h2>
+
+		<article class="media flex">
+			<iframe width="470" height="315" src="{{ article.video2 }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<iframe width="470" height="315" src="{{ article.video3 }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<iframe width="470" height="315" src="{{ article.video4 }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</article>
+
+		<h2> {{ article.sous_titre3 }} </h2>
+
+		<artixle class="media flex">
+			<iframe width="470" height="315" src="{{ article.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<iframe width="470" height="315" src="{{ article.video5 }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</artixle>
+
+		<section class="texte">
+			<h2> {{ article.sous_titre4 }} </h2>
+			<p> {{ article.texte5 }} </p>
+		</section>
+
+		<div class="media flex">
+			<figure>
+				<img src="{{ article.image32 }}" alt="{{ article.alt32 }}" />
+				<figcaption>{{ article.legende32 }}</figcaption>
+			</figure>
+			<figure>
+  				<img src="{{ article.image }}" alt="{{ article.alt }}" />
+  				<figcaption>{{article.legende }}</figcaption>
+			</figure>
+			<figure>
+  				<img src="{{ article.image1 }}" alt="{{ article.alt1 }}" />
+  				<figcaption>{{ article.legende1 }}</figcaption>
+			</figure>
+			<figure>
+  				<img src="{{ article.image2 }}" alt="{{ article.alt2 }}" />
+  				<figcaption>{{ article.legende2 }}</figcaption>
+			</figure>
+			<figure>
+  				<img src="{{ article.image3 }}" alt="{{ article.alt3 }}" />
+  				<figcaption>{{ article.legende3 }}</figcaption>
+			</figure>
+
+			<figure>
+  				<img src="{{ article.image4 }}" alt="{{ article.alt4 }}" />
+  				<figcaption>{{ article.legende4 }}</figcaption>
+			</figure>
+			<figure>
+  				<img class="pl" src="{{ article.image5 }}" alt="{{ article.alt5 }}" />
+  				<figcaption>{{ article.legende5 }}</figcaption>
+			</figure>
+			<figure>
+  				<img class="pl" src="{{ article.image6 }}" alt="{{ article.alt6 }}" />
+  				<figcaption>{{ article.legende6 }}</figcaption>
+			</figure>
+			<figure>
+  				<img class="pl" src="{{ article.image7 }}" alt="{{ article.alt7 }}" />
+  				<figcaption>{{ article.legende7 }}</figcaption>
+			</figure>
+
+			<figure>
+  				<img src="{{ article.image9 }}" alt="{{ article.alt9 }}" />
+  				<figcaption>{{ article.legende9 }}</figcaption>
+			</figure>
+			<figure>
+  				<img src="{{ article.image10 }}" alt="{{ article.alt10 }}" />
+  				<figcaption>{{ article.legende10 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image11 }}" alt="{{ article.alt11 }}" />
+				<figcaption>{{ article.legende11 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image12 }}" alt="{{ article.alt12 }}" />
+				<figcaption>{{ article.legende12 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image13 }}" alt="{{ article.alt13 }}" />
+				<figcaption>{{ article.legende13 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image14 }}" alt="{{ article.alt14 }}" />
+				<figcaption>{{ article.legende14 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image15 }}" alt="{{ article.alt15 }}" />
+				<figcaption>{{ article.legende15 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img class="pl" src="{{ article.image16 }}" alt="{{ article.alt16 }}" />
+				<figcaption>{{ article.legende16 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image17 }}" alt="{{ article.alt17 }}" />
+				<figcaption>{{ article.legende17 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image18 }}" alt="{{ article.alt18 }}" />
+				<figcaption>{{ article.legende18 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image19 }}" alt="{{ article.alt19 }}" />
+				<figcaption>{{ article.legende19 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image20 }}" alt="{{ article.alt20 }}" />
+				<figcaption>{{ article.legende20 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image21 }}" alt="{{ article.alt21 }}" />
+				<figcaption>{{ article.legende21 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image22 }}" alt="{{ article.alt22 }}" />
+				<figcaption>{{ article.legende22 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image23 }}" alt="{{ article.alt23 }}" />
+				<figcaption>{{ article.legende23 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image24 }}" alt="{{ article.alt24 }}" />
+				<figcaption>{{ article.legende24 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img class="pl" src="{{ article.image25 }}" alt="{{ article.alt25 }}" />
+				<figcaption>{{ article.legende25 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image26 }}" alt="{{ article.alt26 }}" />
+				<figcaption>{{ article.legende26 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image27 }}" alt="{{ article.alt27 }}" />
+				<figcaption>{{ article.legende27 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img class="pl" src="{{ article.image28 }}" alt="{{ article.alt28 }}" />
+				<figcaption>{{ article.legende28 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img class="pl" src="{{ article.image29 }}" alt="{{ article.alt29 }}" />
+				<figcaption>{{ article.legende29 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image30 }}" alt="{{ article.alt30 }}" />
+				<figcaption>{{ article.legende30 }}</figcaption>
+			</figure>
+
+			<figure>
+				<img src="{{ article.image31 }}" alt="{{ article.alt31 }}" />
+				<figcaption>{{ article.legende31 }}</figcaption>
+			</figure>
+		</div>
+
+		{% endblock %}
+	</main>
+
+	<footer role="contentinfo">
+		{% block footer %}
+
+		<nav class="sub-nav" role="navigation">
+			<!-- Menu présent dans toutes les pages héritant (extends) de ce modèle -->
+			<a href="index.php" aria-label="va sur la page acceuil">Accueil</a>
+			<a href="contact.php" aria-label="page des contacts"> Contacts </a>
+			<a href="#" aria-label="met la page en anglais"> Anglais </a>
+		</nav>
+
+		<p> 2024 © Copyright DESSEIGNE All rights Reserved. </p>
+
+		{% endblock footer %}
+	</footer>
+</body>
+
+</html>

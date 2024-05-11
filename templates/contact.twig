@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+
+{# Ce modèle TWIG étend le modèle 'base.twig' : il contient tous les éléments fixes
+et un bloc main dont le contenu est spécialisé pour afficher un livre #}
+{% block css %}
+<link rel="stylesheet" href="css/contact_style.css">
+{% endblock css %}
+
+
+{% block main %}
+    <section class="coord">
+        <h2>Coordonnées</h2>
+        <p>Vous pouvez me contacter aux coordonnées suivantes :</p>
+        <address>
+            <p><span>Adresse :</span> 6 rue des pinsons, Bishheim, France</p>
+            <p><span>Téléphone :</span> +33 6 52 53 87 49 </p>
+            <p><span>E-mail :</span> nolhandesseigne@free.fr </p>
+            <p><span>Linkedin :</span> <img src="images/IMG_1064.png"></p>
+        </address>
+    </section>
+{% endblock main %}
