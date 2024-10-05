@@ -30,7 +30,6 @@ body {
 
 a {
 	color: rgb(236, 236, 233);
-	text-decoration: none;
 	display: flex;
 	justify-content: center;
 }
