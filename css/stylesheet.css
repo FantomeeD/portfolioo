@@ -27,6 +27,12 @@ body {
 	margin: auto;
 }
 
+
+h3 {
+	display: flex;
+	justify-content: center;
+}
+
 .media {
 	justify-content: center;
 	flex-wrap: wrap;
@@ -114,12 +120,6 @@ h1 {
 }
 
 h2 {
-	color: rgb(233, 178, 27);
-	display: flex;
-	justify-content: center;
-}
-
-h3 {
 	color: rgb(233, 178, 27);
 	display: flex;
 	justify-content: center;
