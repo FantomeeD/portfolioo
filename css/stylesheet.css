@@ -22,6 +22,11 @@ body {
 	margin: auto;
 }
 
+.desc {
+	width: 500px;
+	margin: auto;
+}
+
 .media {
 	justify-content: center;
 	flex-wrap: wrap;
