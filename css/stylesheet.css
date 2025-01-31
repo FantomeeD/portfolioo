@@ -134,8 +134,8 @@ img {
 }
 
 .pl {
-	width: 400px;
-	height: 350PX;
+	width: auto;
+	height: auto;
 }
 
 figcaption {
