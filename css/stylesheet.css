@@ -45,13 +45,6 @@ a {
 	text-decoration: none;
 }
 
-main a {
-	color: rgb(233, 178, 27);
-	display: flex;
-	justify-content: center;
-	text-decoration: underline;
-}
-
 .btn {
 	height: 70px;
 	width: 70px;
@@ -97,7 +90,7 @@ header {
 }
 
 .main-nav a {
-	color: rgb(25, 25, 25);
+	color: #ecece9;
 	text-decoration: none;
 }
 
@@ -133,6 +126,13 @@ img {
 	height: 400px;
 }
 
+main a {
+	color: rgb(233, 178, 27);
+	display: flex;
+	justify-content: center;
+	text-decoration: underline;
+}
+
 .pl {
 	width: auto;
 	height: 400px;
@@ -146,7 +146,7 @@ figcaption {
 
 footer {
 	background-color: #191919;
-	color: rgb(236, 236, 233);
+	color: #ecece9;
 	border-top: 2px solid #e9b21b;
 }
 
