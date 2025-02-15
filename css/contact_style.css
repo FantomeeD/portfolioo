@@ -109,7 +109,7 @@ h2 {
 
 p {
 	text-align: center;
-	color: white;
+	color: rgb(236, 236, 233);
 }
 
 .pl {
@@ -125,7 +125,7 @@ figcaption {
 
 footer {
 	background-color: rgb(25, 25, 25);
-	color: white;
+	color: rgb(236, 236, 233);
 	border-top: 2px solid rgb(233, 178, 27);
 }
 
@@ -135,7 +135,7 @@ footer {
 }
 
 .sub-nav a {
-	color: white;
+	color: rgb(236, 236, 233);
 	text-decoration: none;
 }
 
@@ -154,7 +154,7 @@ footer {
 span {
 	font-size: larger;
 	font-weight: bold;
-	color: orange;
+	color: rgb(233, 178, 27);
 }
 
 img {

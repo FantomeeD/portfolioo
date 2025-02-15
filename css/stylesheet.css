@@ -109,7 +109,7 @@ header {
 /*---MAIN---*/
 
 main {
-	color: #bce5ff;
+	color: rgb(236, 236, 233);
 }
 
 h1 {
@@ -145,7 +145,7 @@ figcaption {
 /*---FOOTER---*/
 
 footer {
-	background-color: #bce5ff;
+	background-color: rgb(25, 25, 25);
 	color: rgb(25, 25, 25);
 	border-top: 2px solid rgb(233, 178, 27);
 }
