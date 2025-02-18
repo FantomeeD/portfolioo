@@ -88,8 +88,8 @@ footer {
     display: block;
     width: 20px;
     height: 20px;
-    border-bottom: 5px solid var(--tonic-color);
-    border-right: 5px solid var(--tonic-color);
+    border-bottom: 5px solid rgb(233, 178, 27);
+    border-right: 5px solid rgb(233, 178, 27);
     transform: rotate(45deg);
     margin: -10px;
     animation: scroll 2s infinite;
