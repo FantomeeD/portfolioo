@@ -1,7 +1,7 @@
 * {
 	scroll-behavior: smooth;
 	scrollbar-width: auto;
-	scrollbar-color: rgb(233, 178, 27) #000000;
+	scrollbar-color: #C297B8 #000000;
 }
 
 body {
@@ -42,7 +42,7 @@ a {
 .bouton_up {
 	height: 70px;
 	width: 70px;
-	background: rgb(233, 178, 27);
+	background: #C297B8;
 	text-decoration: none;
 	color: rgb(25, 25, 25);
 	opacity: 50%;
@@ -83,8 +83,8 @@ footer {
     display: block;
     width: 20px;
     height: 20px;
-    border-bottom: 5px solid rgb(233, 178, 27);
-    border-right: 5px solid rgb(233, 178, 27);
+    border-bottom: 5px solid #C297B8;
+    border-right: 5px solid #C297B8;
     transform: rotate(45deg);
     margin: -10px;
     animation: scroll 2s infinite;
@@ -115,7 +115,7 @@ footer {
 /*---HEADER---*/
 
 header {
-	border-bottom: 2px solid rgb(233, 178, 27);
+	border-bottom: 2px solid #C297B8;
 	padding: 0px;
 	padding-bottom: 20px;
 	font-size: 20px;
@@ -133,7 +133,7 @@ header {
 
 .main-nav a:hover,
 .sub-nav a:hover {
-	color: rgb(233, 178, 27);
+	color: #C297B8;
 }
 
 /*---MAIN---*/
@@ -143,13 +143,13 @@ main {
 }
 
 h1 {
-	color: rgb(233, 178, 27);
+	color: #C297B8;
 	display: flex;
 	justify-content: center;
 }
 
 h2 {
-	color: rgb(233, 178, 27);
+	color: #C297B8;
 	display: flex;
 	justify-content: center;
 }
@@ -159,7 +159,7 @@ p {
 }
 
 main a {
-	color: rgb(233, 178, 27);
+	color: #C297B8;
 	display: flex;
 	justify-content: center;
 	text-decoration: underline;
@@ -181,12 +181,12 @@ figcaption {
 }
 
 span {
-	color: rgb(233, 178, 27);
+	color: #C297B8;
 	font-weight: bolder;
 }
 
 .card-title {
-	color: rgb(233, 178, 27);
+	color: #C297B8;
 }
 
 .card-body {
@@ -199,7 +199,7 @@ span {
 footer {
 	background-color: #191919;
 	color: #ecece9;
-	border-top: 2px solid #e9b21b;
+	border-top: 2px solid #C297B8;
 }
 
 .sub-nav {
