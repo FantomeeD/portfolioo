@@ -204,6 +204,10 @@ span {
 	background-color: var(--base-color);
 }
 
+.btn:hover {
+	background-color: var(--seconddary-color);
+}
+
 /*---FOOTER---*/
 
 footer {
