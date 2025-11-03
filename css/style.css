@@ -1,7 +1,7 @@
 * {
 	scroll-behavior: smooth;
 	scrollbar-width: auto;
-	scrollbar-color: #4E5283 #000000;
+	scrollbar-color: #959ad8 #000000;
 }
 
 body {
@@ -42,7 +42,7 @@ a {
 .bouton_up {
 	height: 70px;
 	width: 70px;
-	background: #4E5283;
+	background: #959ad8;
 	text-decoration: none;
 	color: rgb(25, 25, 25);
 	opacity: 75%;
@@ -83,8 +83,8 @@ footer {
     display: block;
     width: 20px;
     height: 20px;
-    border-bottom: 5px solid #4E5283;
-    border-right: 5px solid #4E5283;
+    border-bottom: 5px solid #959ad8;
+    border-right: 5px solid #959ad8;
     transform: rotate(45deg);
     margin: -10px;
     animation: scroll 2s infinite;
@@ -115,7 +115,7 @@ footer {
 /*---HEADER---*/
 
 header {
-	border-bottom: 2px solid #4E5283;
+	border-bottom: 2px solid #959ad8;
 	padding: 0px;
 	padding-bottom: 20px;
 	font-size: 20px;
@@ -133,7 +133,7 @@ header {
 
 .main-nav a:hover,
 .sub-nav a:hover {
-	color: #4E5283;
+	color: #959ad8;
 }
 
 /*---MAIN---*/
@@ -143,13 +143,13 @@ main {
 }
 
 h1 {
-	color: #4E5283;
+	color: #959ad8;
 	display: flex;
 	justify-content: center;
 }
 
 h2 {
-	color: #4E5283;
+	color: #959ad8;
 	display: flex;
 	justify-content: center;
 }
@@ -159,7 +159,7 @@ p {
 }
 
 main a {
-	color: #4E5283;
+	color: #959ad8;
 	display: flex;
 	justify-content: center;
 	text-decoration: underline;
@@ -181,12 +181,12 @@ figcaption {
 }
 
 span {
-	color: #4E5283;
+	color: #959ad8;
 	font-weight: bolder;
 }
 
 .card-title {
-	color: #4E5283;
+	color: #959ad8;
 }
 
 .card-body {
@@ -195,7 +195,7 @@ span {
 }
 
 .color {
-	background-color: #4E5283;
+	background-color: #959ad8;
 }
 
 /*---FOOTER---*/
@@ -203,7 +203,7 @@ span {
 footer {
 	background-color: #191919;
 	color: #ecece9;
-	border-top: 2px solid #4E5283;
+	border-top: 2px solid #959ad8;
 }
 
 .sub-nav {
