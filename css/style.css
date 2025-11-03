@@ -206,6 +206,7 @@ span {
 
 .btn:hover {
 	background-color: var(--seconddary-color);
+	color: var(--tiercary-color);
 }
 
 /*---FOOTER---*/
