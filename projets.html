@@ -37,22 +37,19 @@
         <section class="texte">
             <h1>Mes Projets</h1>
 
+            <!-- Boutons de filtrage -->
             <div class="container d-flex justify-content-center p-4">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col">
-                        <a href="p_categories/projets_md.html" class="btn btn-outline-light w-100"> Montion Designs </a>
-                    </div>
-                    <div class="col">
-                        <a href="p_categories/projets_g.html" class="btn btn-outline-light"> Graphismes </a>
-                    </div>
-                    <div class="col">
-                        <a href="p_categories/projets_m.html" class="btn btn-outline-light"> Montages </a>
-                    </div>
+                <div class="filter-buttons btn-group" role="group">
+                    <button class="btn btn-outline-light filter-btn active" data-filter="all">Tous</button>
+                    <button class="btn btn-outline-light filter-btn" data-filter="montage">Montage</button>
+                    <button class="btn btn-outline-light filter-btn" data-filter="graphisme">Graphisme</button>
+                    <button class="btn btn-outline-light filter-btn" data-filter="motion-design">Motion Design</button>
                 </div>
             </div>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
+            <!-- Conteneur des cartes -->
+            <div class="projects-container row row-cols-1 row-cols-md-3 g-4">
+                <div class="col project-card" data-category="graphisme">
                     <div class="border-secondary card h-100">
                         <img src="images/screen_generiaue.png" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -69,7 +66,9 @@
                         <a href="projets/jaws_generique.html" class="btn">En savoir plus...</a>
                     </div>
                 </div>
-                <div class="col">
+                
+                <!-- Stage Leclerc Voyages -->
+                <div class="col project-card" data-category="graphisme montage">
                     <div class="border-secondary card h-100">
                         <img src="images/voyages-Leclerc.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -79,7 +78,9 @@
                         <a href="projets/stage_voyages.html" class="btn">En savoir plus...</a>
                     </div>
                 </div>
-                <div class="col">
+                
+                <!-- Stage Wolfdog Production -->
+                <div class="col project-card" data-category="montage">
                     <div class="border-secondary card h-100">
                         <img src="images/480602438_659539989839406_8260283647509317323_n.jpg" class="card-img-top"
                             alt="...">
@@ -95,7 +96,9 @@
                         <a href="projets/stage_wolfdog.html" class="btn">En savoir plus...</a>
                     </div>
                 </div>
-                <div class="col">
+                
+                <!-- Insanitation teaser -->
+                <div class="col project-card" data-category="motion-design graphisme">
                     <div class="border-secondary card h-100">
                         <iframe width="auto" height="315" src="https://www.youtube.com/embed/UYIUQr4SW00?si=xMKozpXrGPbLK1IX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="card-body">
@@ -108,7 +111,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                
+                <!-- Europe sur la defensive -->
+                <div class="col project-card" data-category="montage motion-design">
                     <div class="border-secondary card h-100">
                         <iframe width="auto" height="315" src="https://www.youtube.com/embed/alf6KQkwvpA?si=hu0ad9v1CqkINKz6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="card-body">
@@ -121,7 +126,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                
+                <!-- Reportage QLIO Flextory -->
+                <div class="col project-card" data-category="montage">
                     <div class="border-secondary card h-100">
                         <iframe width="auto" height="315" src="https://www.youtube.com/embed/N7Anjb3-oxc?si=iXfIquhyHmJTKWCs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="card-body">
@@ -133,7 +140,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                
+                <!-- Reportage Alsace Nautile Club -->
+                <div class="col project-card" data-category="montage">
                     <div class="border-secondary card h-100">
                         <iframe width="auto" height="315" src="https://www.youtube.com/embed/H1eWenagifo?si=o_5Pa4ykklI7YV2N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         <div class="card-body">
@@ -160,6 +169,40 @@
 
         <p> 2024 © Copyright Nolhan DESSEIGNE All rights Reserved. </p>
     </footer>
+
+    <script>
+        // Système de filtrage des projets
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Retirer la classe 'active' de tous les boutons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Ajouter la classe 'active' au bouton cliqué
+                btn.classList.add('active');
+
+                const selectedFilter = btn.getAttribute('data-filter');
+
+                // Afficher ou masquer les cartes en fonction du filtre sélectionné
+                projectCards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+                    
+                    if (selectedFilter === 'all' || categories.includes(selectedFilter)) {
+                        card.style.display = 'block';
+                        // Ajouter une animation fade-in
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.transition = 'opacity 0.3s ease-in';
+                            card.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
