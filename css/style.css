@@ -284,3 +284,156 @@ footer {
 		transform: translateY(0);
 	}
 }
+
+/* ===== STANDARDISATION DES IMAGES ===== */
+
+/* Images dans les cartes (card-img-top) */
+.card-img-top {
+	width: 100%;
+	height: 280px;
+	object-fit: cover;
+	display: block;
+}
+
+/* Images horizontales standard (paysage 16:9) */
+.img-horizontal,
+.img-landscape {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+	display: block;
+	border-radius: 8px;
+}
+
+/* Images verticales standard (portrait 9:16) */
+.img-vertical,
+.img-portrait {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 9 / 16;
+	object-fit: cover;
+	display: block;
+	border-radius: 8px;
+}
+
+/* Images carrées standard */
+.img-square {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	display: block;
+	border-radius: 8px;
+}
+
+/* Images circulaires (profil) */
+.img-circle,
+.rounded-circle {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: 50%;
+	display: block;
+}
+
+/* Tailles prédéfinies pour images horizontales */
+.img-horizontal-sm {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+	display: block;
+	border-radius: 6px;
+}
+
+.img-horizontal-md {
+	width: 100%;
+	height: 280px;
+	object-fit: cover;
+	display: block;
+	border-radius: 8px;
+}
+
+.img-horizontal-lg {
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+	display: block;
+	border-radius: 8px;
+}
+
+/* Tailles prédéfinies pour images verticales */
+.img-vertical-sm {
+	width: 100%;
+	height: 200px;
+	aspect-ratio: 9 / 12;
+	object-fit: cover;
+	display: block;
+	border-radius: 6px;
+}
+
+.img-vertical-md {
+	width: 100%;
+	height: 350px;
+	aspect-ratio: 9 / 14;
+	object-fit: cover;
+	display: block;
+	border-radius: 8px;
+}
+
+.img-vertical-lg {
+	width: 100%;
+	height: 500px;
+	aspect-ratio: 9 / 16;
+	object-fit: cover;
+	display: block;
+	border-radius: 8px;
+}
+
+/* Images responsives au sein de conteneurs */
+.img-responsive {
+	width: 100%;
+	height: auto;
+	display: block;
+	max-width: 100%;
+}
+
+/* Classe pour wrapper d'images avec aspect ratio */
+.img-wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 8px;
+}
+
+.img-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Iframes responsives (pour vidéos YouTube) */
+iframe {
+	max-width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+	.img-horizontal-md,
+	.img-horizontal-lg {
+		height: 200px;
+	}
+	
+	.img-vertical-md,
+	.img-vertical-lg {
+		height: 280px;
+	}
+	
+	.card-img-top {
+		height: 200px;
+	}
+}
