@@ -1,0 +1,288 @@
+/* ============================================
+   COMPOSANT BREADCRUMB (FIL D'ARIANE)
+   ============================================ */
+
+:root {
+    --breadcrumb-color: #666;
+    --breadcrumb-link-color: #007bff;
+    --breadcrumb-link-hover-color: #0056b3;
+    --breadcrumb-active-color: #333;
+    --breadcrumb-separator-color: #ccc;
+    --breadcrumb-bg-color: #f8f9fa;
+    --breadcrumb-border-color: #dee2e6;
+    --breadcrumb-padding: 1rem;
+    --breadcrumb-gap: 0.5rem;
+    --breadcrumb-font-size: 0.95rem;
+}
+
+/* Conteneur principal */
+.breadcrumb {
+    display: block;
+    width: 100%;
+}
+
+.breadcrumb__list {
+    list-style: none;
+    padding: var(--breadcrumb-padding);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--breadcrumb-gap);
+    font-size: var(--breadcrumb-font-size);
+    color: var(--breadcrumb-color);
+}
+
+/* Élément du breadcrumb */
+.breadcrumb__item {
+    display: flex;
+    align-items: center;
+    gap: var(--breadcrumb-gap);
+}
+
+/* Lien du breadcrumb */
+.breadcrumb__link {
+    color: var(--breadcrumb-link-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.breadcrumb__link:hover {
+    color: var(--breadcrumb-link-hover-color);
+    text-decoration: underline;
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+.breadcrumb__link:focus {
+    outline: 2px solid var(--breadcrumb-link-hover-color);
+    outline-offset: 2px;
+}
+
+/* Élément actif (dernière étape) */
+.breadcrumb__item--active {
+    color: var(--breadcrumb-active-color);
+    font-weight: 600;
+    pointer-events: none;
+}
+
+/* Séparateur (chevron) */
+.breadcrumb__item:not(:last-child)::after {
+    content: '›';
+    display: inline-flex;
+    align-items: center;
+    margin-left: var(--breadcrumb-gap);
+    color: var(--breadcrumb-separator-color);
+    font-weight: bold;
+    font-size: 1.1em;
+    user-select: none;
+}
+
+/* Icônes optionnelles */
+.breadcrumb__icon {
+    width: 1.1em;
+    height: 1.1em;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.breadcrumb__link .breadcrumb__icon {
+    margin-right: 0.25rem;
+}
+
+/* Variante avec arrière-plan */
+.breadcrumb--bg .breadcrumb__list {
+    background-color: var(--breadcrumb-bg-color);
+    border: 1px solid var(--breadcrumb-border-color);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+/* Variante avec icônes */
+.breadcrumb--with-icons .breadcrumb__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.breadcrumb--with-icons .breadcrumb__item--active {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.breadcrumb--with-icons .breadcrumb__icon {
+    flex-shrink: 0;
+}
+
+/* ============================================
+   RÉACTIVITÉ ET BREAKPOINTS
+   ============================================ */
+
+/* Tablette (768px et plus petit) */
+@media (max-width: 768px) {
+    :root {
+        --breadcrumb-font-size: 0.9rem;
+        --breadcrumb-padding: 0.75rem;
+    }
+
+    .breadcrumb__list {
+        gap: 0.3rem;
+    }
+
+    .breadcrumb__icon {
+        width: 1em;
+        height: 1em;
+    }
+
+    /* Sur mobile, on peut masquer certains éléments optionnels */
+    .breadcrumb__item:not(:first-child):not(:last-child) {
+        display: none;
+    }
+
+    .breadcrumb__item:nth-child(2):not(:last-child)::before {
+        content: '…';
+        display: inline-block;
+        margin: 0 0.3rem;
+        color: var(--breadcrumb-separator-color);
+    }
+}
+
+/* Mobile (< 480px) */
+@media (max-width: 480px) {
+    :root {
+        --breadcrumb-font-size: 0.85rem;
+        --breadcrumb-padding: 0.5rem;
+    }
+
+    .breadcrumb__list {
+        gap: 0.2rem;
+    }
+
+    .breadcrumb__link {
+        padding: 0.2rem 0.3rem;
+    }
+
+    /* Show only first and last */
+    .breadcrumb__item:nth-child(n+2):nth-child(-n+3) {
+        display: none;
+    }
+
+    .breadcrumb__icon {
+        width: 0.9em;
+        height: 0.9em;
+    }
+
+    /* Ajouter "..." avant le dernier élément */
+    .breadcrumb__item:last-child::before {
+        content: '…';
+        margin-right: 0.3rem;
+        color: var(--breadcrumb-separator-color);
+    }
+}
+
+/* ============================================
+   ACCESSIBILITÉ
+   ============================================ */
+
+/* Outline visible pour la navigation au clavier */
+.breadcrumb__link:focus-visible {
+    outline: 2px dashed var(--breadcrumb-link-hover-color);
+    outline-offset: 2px;
+}
+
+/* Réduction des mouvements pour les utilisateurs qui le demandent */
+@media (prefers-reduced-motion: reduce) {
+    .breadcrumb__link {
+        transition: none;
+    }
+}
+
+/* Mode sombre (optionnel) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --breadcrumb-color: #aaa;
+        --breadcrumb-active-color: #e0e0e0;
+        --breadcrumb-separator-color: #555;
+        --breadcrumb-bg-color: #2d2d2d;
+        --breadcrumb-border-color: #444;
+    }
+
+    .breadcrumb__link:hover {
+        background-color: rgba(0, 123, 255, 0.2);
+    }
+}
+
+/* ============================================
+   VARIANTES SUPPLÉMENTAIRES
+   ============================================ */
+
+/* Variante compacte */
+.breadcrumb--compact .breadcrumb__list {
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+}
+
+.breadcrumb--compact .breadcrumb__link {
+    padding: 0.1rem 0.25rem;
+}
+
+/* Variante élargie */
+.breadcrumb--wide .breadcrumb__list {
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.breadcrumb--wide .breadcrumb__link {
+    padding: 0.4rem 0.8rem;
+}
+
+/* Séparateurs personnalisés */
+.breadcrumb--slash .breadcrumb__item:not(:last-child)::after {
+    content: '/';
+}
+
+.breadcrumb--pipe .breadcrumb__item:not(:last-child)::after {
+    content: '|';
+}
+
+.breadcrumb--arrow .breadcrumb__item:not(:last-child)::after {
+    content: '→';
+}
+
+/* ============================================
+   UTILITAIRES
+   ============================================ */
+
+.breadcrumb--hidden-tooltip .breadcrumb__item {
+    position: relative;
+}
+
+.breadcrumb--hidden-tooltip .breadcrumb__link[title]::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb--hidden-tooltip .breadcrumb__link[title]:hover::after,
+.breadcrumb--hidden-tooltip .breadcrumb__link[title]:focus::after {
+    opacity: 1;
+}
