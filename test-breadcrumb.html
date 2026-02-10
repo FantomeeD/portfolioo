@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Breadcrumb</title>
+    <link rel="stylesheet" href="components/breadcrumb.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .debug {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Test Breadcrumb</h1>
+    </header>
+
+    <main>
+        <div class="debug">
+            <strong>Debug Info:</strong>
+            <p id="debug-output"></p>
+        </div>
+    </main>
+
+    <script src="components/breadcrumb.js"></script>
+    <script>
+        // Afficher les informations de debug
+        const debugOutput = document.getElementById('debug-output');
+        debugOutput.innerHTML = `
+            <strong>window.BreadcrumbGenerator exists:</strong> ${typeof window.BreadcrumbGenerator !== 'undefined'}<br>
+            <strong>BreadcrumbGenerator type:</strong> ${typeof window.BreadcrumbGenerator}<br>
+            <strong>Current URL:</strong> ${window.location.href}<br>
+            <strong>Current pathname:</strong> ${window.location.pathname}
+        `;
+
+        // Créer un breadcrumb de test
+        if (window.BreadcrumbGenerator) {
+            const testData = [
+                { label: 'Accueil', url: '/', icon: 'home' },
+                { label: 'Test', url: '/test-breadcrumb.html', isActive: true }
+            ];
+            
+            // Créer le conteneur du breadcrumb
+            const container = document.createElement('div');
+            container.id = 'breadcrumb-container';
+            document.querySelector('main').insertBefore(container, document.querySelector('.debug'));
+            
+            // Initialiser le breadcrumb
+            new window.BreadcrumbGenerator('#breadcrumb-container', testData, {
+                variant: 'bg',
+                mobileMaxItems: 3
+            });
+            
+            debugOutput.innerHTML += '<br><strong style="color: green;">✓ Breadcrumb créé avec succès!</strong>';
+        } else {
+            debugOutput.innerHTML += '<br><strong style="color: red;">✗ BreadcrumbGenerator non trouvé</strong>';
+        }
+    </script>
+</body>
+</html>

@@ -297,3 +297,8 @@ function createBreadcrumbFromURL(selector, baseUrl = '/') {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = BreadcrumbGenerator;
 }
+
+// Export vers l'objet global window pour utilisation en navigateur
+if (typeof window !== 'undefined') {
+    window.BreadcrumbGenerator = BreadcrumbGenerator;
+}
