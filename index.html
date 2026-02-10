@@ -44,27 +44,20 @@
                     <div class="col">
                         <h2>A propos de moi</h2>
                         <p class="text-start">
-                            Actuellement en 3ème année en BUT Métiers du Multimédia et de
-                            l'Internet à Haguenau, je me concentre sur le développement de mes
-                            compétences en technique vidéo, son, post-production, motion design et
-                            graphisme
+                            Actuellement en 3ᵉ année de BUT Métiers du Multimédia et de l’Internet à Haguenau, je
+                            développe mes compétences en vidéo, son, post‑production, motion design et graphisme.
                         </p>
                         <p class="text-start">
-                            De nature créative et énergique, je réalise des vidéos et dessine
-                            pendant mon temps libre. Mes différentes passions sont les jeux
-                            vidéos, la programmation dont sa logique qui m'émerveille, et le cinéma
-                            en particulier la saga et l'univers Star Wars et ses effets pratiques et numérique
-                            impressionant.
+                            Créatif et énergique, je réalise des vidéos et dessine pendant mon temps libre. Je suis
+                            passionné par les jeux vidéo, la programmation dont la logique m’émerveille ainsi que par le
+                            cinéma, en particulier l’univers Star Wars et ses effets pratiques et numériques
+                            impressionnants.
                         </p>
                         <p class="text-start">
-                            De 2020 à 2023 j'ai fait mon lycée aux État Unis ou j'ai développé mon
-                            anglais au niveau C1. Pendant ces 3 ans d'études, j'ai participé au
-                            journal du lycée via des cours de journalisme. J'ai exploré la
-                            création d'un jeux video de A a Z en Réalité Virtuelle avec Unity. Le dessin et la création
-                            3D
-                            de pièces d'usinage avec AutoCAD. Ainsi, j'ai développé beaucoup de
-                            compétences me permettant de m'épanouir dans mes passions et de
-                            produire des projets personnels et professionnels.
+                            De 2020 à 2023, j’ai étudié aux États‑Unis, où j’ai atteint un niveau d’anglais C1. J’y ai
+                            participé au journal du lycée, créé un jeu vidéo VR de A à Z avec Unity, dessiné et modélisé
+                            des pièces d’usinage sur AutoCAD. Ces expériences m’ont permis de développer de nombreuses
+                            compétences et de m’épanouir dans mes projets personnels comme professionnels.
                         </p>
                     </div>
                 </div>
@@ -75,7 +68,7 @@
         <section class="projects-section">
             <h2>Mes Projets</h2>
             <p class="scroll-hint">Scroll verticalement pour voir plus de projets →</p>
-            
+
             <div class="projects-carousel" id="projectsCarousel">
                 <!-- Projet 1: Star 3D -->
                 <div class="project-card-horizontal">
@@ -103,7 +96,8 @@
                         </div>
                         <div class="card-info">
                             <h5>Revisite du Générique de Jaws</h5>
-                            <p>Réinterprétation artistique du générique de Jaws avec contrastes visuels et sonores personnels.</p>
+                            <p>Réinterprétation artistique du générique de Jaws avec contrastes visuels et sonores
+                                personnels.</p>
                             <a href="projets/jaws_generique.html" class="card-link">En savoir plus →</a>
                         </div>
                     </div>
@@ -117,7 +111,8 @@
                         </div>
                         <div class="card-info">
                             <h5>Stage chez Leclerc Voyages</h5>
-                            <p>Supports graphiques, tournages et montages vidéo. Maîtrise d'After Effects, Photoshop et Premiere Pro.</p>
+                            <p>Supports graphiques, tournages et montages vidéo. Maîtrise d'After Effects, Photoshop et
+                                Premiere Pro.</p>
                             <a href="projets/stage_voyages.html" class="card-link">En savoir plus →</a>
                         </div>
                     </div>
@@ -127,7 +122,8 @@
                 <div class="project-card-horizontal">
                     <div class="card-content">
                         <div class="card-image">
-                            <img src="images/480602438_659539989839406_8260283647509317323_n.jpg" alt="Stage Wolfdog Production">
+                            <img src="images/480602438_659539989839406_8260283647509317323_n.jpg"
+                                alt="Stage Wolfdog Production">
                         </div>
                         <div class="card-info">
                             <h5>Stage chez Wolfdog Production</h5>
@@ -149,7 +145,8 @@
                         </div>
                         <div class="card-info">
                             <h5>Insanitation - Teaser Vidéo</h5>
-                            <p>Projet universitaire en équipe. Teaser vidéo motion design pour jeu vidéo en partenariat avec ACC.</p>
+                            <p>Projet universitaire en équipe. Teaser vidéo motion design pour jeu vidéo en partenariat
+                                avec ACC.</p>
                             <a href="p_categories/projets_md.html" class="card-link">En savoir plus →</a>
                         </div>
                     </div>
@@ -197,24 +194,24 @@
     <script>
         // Script pour gérer le scroll vertical → horizontal dans le carrousel
         const projectsCarousel = document.getElementById('projectsCarousel');
-        
+
         if (projectsCarousel) {
             // Événement wheel pour intercepter le scroll vertical
             projectsCarousel.addEventListener('wheel', (event) => {
                 // Vérifier si on est en scrollant horizontalement déjà
                 const isScrollingHorizontally = projectsCarousel.scrollWidth > projectsCarousel.clientWidth;
-                
+
                 if (isScrollingHorizontally) {
                     event.preventDefault();
-                    
+
                     // Déterminer la direction du scroll
                     const scrollAmount = event.deltaY > 0 ? 50 : -50;
-                    
+
                     // Appliquer le scroll horizontal
                     projectsCarousel.scrollLeft += scrollAmount;
                 }
             });
-            
+
             // Support pour le track pad (scroll lisse)
             projectsCarousel.addEventListener('DOMMouseScroll', (event) => {
                 if (event.axis === event.VERTICAL_AXIS && event.detail !== 0) {
@@ -222,7 +219,7 @@
                     projectsCarousel.scrollLeft += event.detail > 0 ? 50 : -50;
                 }
             });
-            
+
             // Animation d'entrée - Fade in des cartes
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -232,7 +229,7 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
+
             const cards = projectsCarousel.querySelectorAll('.project-card-horizontal');
             cards.forEach((card, index) => {
                 card.style.animationDelay = `${index * 0.05}s`;
