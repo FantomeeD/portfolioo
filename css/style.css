@@ -164,7 +164,7 @@ h2 {
 h6 {
 	background-color: var(--base-color);
 	border-radius: 100px;
-	border: 2px solid var(#5a5d8f);
+	border: 2px solid #5a5d8f;
 	padding: 15px;
 	
 }
