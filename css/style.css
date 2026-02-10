@@ -514,10 +514,10 @@ footer {
    ============================================ */
 
 :root {
-    --breadcrumb-color: #666;
-    --breadcrumb-link-color: #444;
+    --breadcrumb-color: #afafaf;
+    --breadcrumb-link-color: #797979;
     --breadcrumb-link-hover-color: #959ad8;
-    --breadcrumb-active-color: #333;
+    --breadcrumb-active-color: #959ad8;
     --breadcrumb-separator-color: #ccc;
     --breadcrumb-bg-color: #f8f9fa;
     --breadcrumb-border-color: #dee2e6;
