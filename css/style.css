@@ -166,8 +166,14 @@ h6 {
 	border-radius: 100px;
 	border: 2px solid #5a5d8f;
 	padding: 15px;
-	block-size: auto;
 	width: fit-content;
+}
+
+h7 {
+	color: var(--base-color);
+	padding: 15px;
+	font-size: larger;
+	font-weight: bolder;
 }
 
 p {
