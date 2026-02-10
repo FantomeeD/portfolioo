@@ -150,7 +150,7 @@ header {
 .cv {
 	border: 2px solid var(--base-color);
 	border-radius: 100px;
-	padding: 10px 20px;
+	padding: 15px;
 }
 
 /*---MAIN---*/
