@@ -129,7 +129,7 @@ header {
 }
 
 .main-nav {
-	
+	justify-content: end;
 }
 
 .main-nav a {
