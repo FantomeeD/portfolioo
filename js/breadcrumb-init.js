@@ -51,7 +51,7 @@ function generateBreadcrumbFromURL() {
     // Toujours ajouter l'accueil en premier
     items.push({
         label: 'Accueil',
-        url: '/',
+        url: 'index.html',
         icon: 'home'
     });
 
