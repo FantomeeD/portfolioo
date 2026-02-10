@@ -718,14 +718,14 @@ footer {
 @media (prefers-color-scheme: dark) {
     :root {
         --breadcrumb-color: #aaa;
-        --breadcrumb-active-color: #e0e0e0;
-        --breadcrumb-separator-color: #555;
+        --breadcrumb-active-color: #959ad8;
+        --breadcrumb-separator-color: #959ad8;
         --breadcrumb-bg-color: #2d2d2d;
         --breadcrumb-border-color: #444;
     }
 
     .breadcrumb__link:hover {
-        background-color: rgba(0, 123, 255, 0.2);
+        background-color: #5a5d8f;
     }
 }
 
