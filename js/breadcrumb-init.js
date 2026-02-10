@@ -37,14 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
  */
 function generateBreadcrumbFromURL() {
     const path = window.location.pathname;
-    let fileName = path.split('/').pop();
+    let fileName = path.split('').pop();
     
     // Gérer le cas où fileName est vide (racine du site)
     if (!fileName || fileName === '') {
         fileName = 'index.html';
     }
     
-    const pathParts = path.split('/').filter(p => p && p !== 'index.html');
+    const pathParts = path.split('').filter(p => p && p !== 'index.html');
     
     const items = [];
     
@@ -165,18 +165,6 @@ function generateBreadcrumbFromURL() {
     }
 
     return items;
-}
-
-/**
- * Obtenir le nom d'une catégorie de projet
- */
-function getCategoryName(fileName) {
-    const categoryMap = {
-        'projets_g.html': 'Graphisme',
-        'projets_m.html': 'Motion Design',
-        'projets_md.html': 'Multimédia'
-    };
-    return categoryMap[fileName] || 'Catégorie';
 }
 
 /**
