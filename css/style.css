@@ -129,7 +129,7 @@ header {
 }
 
 .logo-txt{
-	opacity: 0;
+	display: none;
 }
 
 .main-nav {
