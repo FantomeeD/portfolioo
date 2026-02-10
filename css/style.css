@@ -166,7 +166,7 @@ h6 {
 	border-radius: 100px;
 	border: 2px solid #5a5d8f;
 	padding: 15px;
-	
+	block-size: auto;
 }
 
 p {
