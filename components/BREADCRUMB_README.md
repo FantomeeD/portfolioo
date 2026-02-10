@@ -246,7 +246,7 @@ Le composant s'adapte automatiquement:
 <link rel="stylesheet" href="breadcrumb.css">
 
 <!-- Avant la fermeture du </body> -->
-<script src="breadcrumb.js"></script>
+<script src="../js/breadcrumb.js"></script>
 ```
 
 ### Étape 2: Ajouter un Conteneur

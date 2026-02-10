@@ -32,8 +32,8 @@ URL                          → Breadcrumb Généré
 ### Fichiers CSS (composants/)
 - `breadcrumb.css` - Styles du composant
 
-### Fichiers JavaScript (composants/ et js/)
-- `components/breadcrumb.js` - Classe BreadcrumbGenerator
+### Fichiers JavaScript (js/)
+- `js/breadcrumb.js` - Classe BreadcrumbGenerator
 - `js/breadcrumb-init.js` - Script d'initialisation personnalisé pour votre site
 
 ### Modifications HTML
@@ -41,7 +41,7 @@ Chaque fichier a reçu:
 1. **Dans le `<head>`**: `<link rel="stylesheet" href="components/breadcrumb.css" />`
 2. **Avant `</body>`**: 
    ```html
-   <script src="components/breadcrumb.js"></script>
+   <script src="js/breadcrumb.js"></script>
    <script src="js/breadcrumb-init.js"></script>
    ```
 
@@ -54,7 +54,7 @@ Chaque fichier a reçu:
 <link rel="stylesheet" href="components/breadcrumb.css" />
 
 <!-- Avant </body> -->
-<script src="components/breadcrumb.js"></script>
+<script src="js/breadcrumb.js"></script>
 <script src="js/breadcrumb-init.js"></script>
 ```
 
@@ -193,7 +193,7 @@ C'est tout ! Le breadcrumb se générera automatiquement grâce à l'URL.
         <!-- votre footer -->
     </footer>
     
-    <script src="../components/breadcrumb.js"></script>
+    <script src="../js/breadcrumb.js"></script>
     <script src="../js/breadcrumb-init.js"></script>
 </body>
 </html>
@@ -260,7 +260,7 @@ if (pathParts[0] === 'resources') {
 }
 ```
 
-### Personnaliser le rendu (components/breadcrumb.js)
+### Personnaliser le rendu (js/breadcrumb.js)
 
 Voir la documentation complète dans `components/BREADCRUMB_README.md`
 
