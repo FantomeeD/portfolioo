@@ -521,7 +521,7 @@ footer {
     --breadcrumb-active-color: #959ad8;
     --breadcrumb-separator-color: #ccc;
     --breadcrumb-bg-color: #f8f9fa;
-    --breadcrumb-border-color: #959ad8;
+    --breadcrumb-border-color: #ccc;
     --breadcrumb-padding: 1rem;
     --breadcrumb-gap: 0.5rem;
     --breadcrumb-font-size: 0.95rem;
@@ -722,7 +722,7 @@ footer {
         --breadcrumb-active-color: #959ad8;
         --breadcrumb-separator-color: #ccc;
         --breadcrumb-bg-color: #2d2d2d;
-        --breadcrumb-border-color: #959ad8;
+        --breadcrumb-border-color: #ccc;
     }
 
     .breadcrumb__link:hover {
