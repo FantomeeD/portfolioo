@@ -52,7 +52,7 @@ function generateBreadcrumbFromURL() {
     // Déterminer la structure basée sur le chemin
     
     // Pages racine
-    if (fileName === 'index.html' && pathParts.length === 0) {
+    if (fileName === '/index.html' && pathParts.length === 0) {
         // Page d'accueil - pas d'autres éléments
         return items;
     }
