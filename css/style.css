@@ -135,6 +135,7 @@ header {
 .main-nav a {
 	color: var(--tiercary-color);
 	text-decoration: none;
+	padding-left: 20px;
 }
 
 .main-nav a:hover,
