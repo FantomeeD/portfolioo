@@ -147,6 +147,12 @@ header {
 	color: var(--base-color);
 }
 
+.cv {
+	border: 2px solid var(--base-color);
+	border-radius: 100px;
+	padding: 10px 20px;
+}
+
 /*---MAIN---*/
 
 main {
