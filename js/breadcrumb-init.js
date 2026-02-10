@@ -60,7 +60,7 @@ function generateBreadcrumbFromURL() {
     if (fileName === 'projets.html') {
         items.push({
             label: 'Projets',
-            url: '/projets.html',
+            url: 'projets.html',
             isActive: true
         });
         return items;
@@ -69,7 +69,7 @@ function generateBreadcrumbFromURL() {
     if (fileName === 'exploration.html') {
         items.push({
             label: 'Explorations',
-            url: '/exploration.html',
+            url: 'exploration.html',
             isActive: true
         });
         return items;
@@ -78,7 +78,7 @@ function generateBreadcrumbFromURL() {
     if (fileName === 'contact.html') {
         items.push({
             label: 'Contacts',
-            url: '/contact.html',
+            url: 'contact.html',
             isActive: true
         });
         return items;
@@ -88,7 +88,7 @@ function generateBreadcrumbFromURL() {
     if (pathParts[0] === 'p_categories') {
         items.push({
             label: 'Projets',
-            url: '/projets.html'
+            url: 'projets.html'
         });
 
         const categoryName = getCategoryName(fileName);
@@ -104,7 +104,7 @@ function generateBreadcrumbFromURL() {
     if (pathParts[0] === 'projets') {
         items.push({
             label: 'Projets',
-            url: '/projets.html'
+            url: 'projets.html'
         });
 
         const projectName = getProjectName(fileName);
@@ -133,7 +133,7 @@ function generateBreadcrumbFromURL() {
     if (pathParts[0] === 'en' && pathParts[1] === 'p_categories') {
         items.push({
             label: 'Projects',
-            url: '/en/projets.html'
+            url: 'en/projets.html'
         });
         const categoryName = getCategoryName(fileName);
         items.push({
@@ -147,7 +147,7 @@ function generateBreadcrumbFromURL() {
     if (pathParts[0] === 'en' && pathParts[1] === 'projets') {
         items.push({
             label: 'Projects',
-            url: '/en/projets.html'
+            url: 'en/projets.html'
         });
         const projectName = getProjectName(fileName);
         items.push({
