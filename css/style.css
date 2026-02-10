@@ -288,10 +288,10 @@ footer {
 /* ===== SECTIONS CARROUSEL HORIZONTAL ===== */
 
 .projects-section {
-	padding: 60px 20px;
+	padding: 30px 20px;
 	background-color: var(--seconddary-color);
 	color: var(--tiercary-color);
-	margin: 40px 0;
+	margin: 20px 0;
 }
 
 .projects-section h2 {
