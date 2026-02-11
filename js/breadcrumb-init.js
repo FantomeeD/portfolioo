@@ -33,19 +33,27 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- * Calculer le chemin relatif vers la racine du site
+ * Calculer le chemin relatif vers la racine du PORTFOLIO (pas du domaine)
  */
 function getBasePath() {
     const path = window.location.pathname;
-
-    // Retirer le nom du fichier pour ne garder que les dossiers
-    const pathWithoutFile = path.substring(0, path.lastIndexOf('/') + 1);
-
-    // Compter le nombre de niveaux (nombre de /)
-    const depth = (pathWithoutFile.match(/\//g) || []).length - 1;
-
-    if (depth === 0) return '';
-    return '../'.repeat(depth);
+    
+    // Trouver l'index du dossier "portfolioo"
+    const portfolioIndex = path.indexOf('/portfolioo/');
+    
+    if (portfolioIndex === -1) {
+        // Si on n'est pas dans portfolioo, retourner vide
+        return '';
+    }
+    
+    // Extraire la partie après /portfolioo/
+    const pathAfterPortfolio = path.substring(portfolioIndex + '/portfolioo/'.length);
+    
+    // Compter le nombre de niveaux après portfolioo
+    const levels = pathAfterPortfolio.split('/').filter(p => p && !p.endsWith('.html')).length;
+    
+    if (levels === 0) return '';
+    return '../'.repeat(levels);
 }
 
 /**
@@ -60,11 +68,10 @@ function generateBreadcrumbFromURL() {
         fileName = 'index.html';
     }
 
-    // Extraire uniquement les parties pertinentes du chemin (après le dossier racine du site)
+    // Extraire uniquement les parties pertinentes du chemin (après portfolioo/)
     const pathParts = path.split('/').filter(p => p && p !== 'index.html' && p !== 'portfolioo');
     const basePath = getBasePath();
 
-    // DÉCLARER items ICI, AVANT les console.log
     const items = [];
 
     console.log('=== DEBUG BREADCRUMB ===');
