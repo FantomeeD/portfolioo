@@ -56,13 +56,14 @@ function generateBreadcrumbFromURL() {
     }
     
     const pathParts = path.split('/').filter(p => p && p !== 'index.html');
-    
+    const basePath = getBasePath();
+
     const items = [];
     
     // Toujours ajouter l'accueil en premier
     items.push({
         label: 'Accueil',
-        url: 'index.html',
+        url: basePath ? basePath + 'index.html' : 'index.html',
         icon: 'home'
     });
 
@@ -74,7 +75,7 @@ function generateBreadcrumbFromURL() {
         return items;
     }
     
-    if (fileName === 'projets.html') {
+    if (fileName === 'projets.html' && pathParts.length === 0) {
         items.push({
             label: 'Projets',
             url: 'projets.html',
@@ -83,7 +84,7 @@ function generateBreadcrumbFromURL() {
         return items;
     }
     
-    if (fileName === 'exploration.html') {
+    if (fileName === 'exploration.html' && pathParts.length === 0) {
         items.push({
             label: 'Explorations',
             url: 'exploration.html',
@@ -92,7 +93,7 @@ function generateBreadcrumbFromURL() {
         return items;
     }
     
-    if (fileName === 'contact.html') {
+    if (fileName === 'contact.html' && pathParts.length === 0) {
         items.push({
             label: 'Contacts',
             url: 'contact.html',
@@ -117,6 +118,7 @@ function generateBreadcrumbFromURL() {
         return items;
     }
 
+    // Pages en anglais (en/XXX.html)
     if (pathParts[0] === 'en') {
 
         if (pathParts[1] === 'projets') {
