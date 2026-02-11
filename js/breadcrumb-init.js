@@ -64,15 +64,15 @@ function generateBreadcrumbFromURL() {
     const pathParts = path.split('/').filter(p => p && p !== 'index.html' && p !== 'portfolioo');
     const basePath = getBasePath();
 
+    // DÉCLARER items ICI, AVANT les console.log
+    const items = [];
+
     console.log('=== DEBUG BREADCRUMB ===');
     console.log('Path:', path);
     console.log('FileName:', fileName);
     console.log('PathParts:', pathParts);
     console.log('BasePath:', basePath);
-    console.log('Items générés:', items);
     console.log('=======================');
-
-    const items = [];
 
     // Toujours ajouter l'accueil en premier
     items.push({
@@ -84,6 +84,7 @@ function generateBreadcrumbFromURL() {
     // Pages racine (dans le dossier portfolioo/)
     if (pathParts.length === 0 || (pathParts.length === 1 && pathParts[0].endsWith('.html'))) {
         if (fileName === 'index.html') {
+            console.log('Items finaux:', items);
             return items;
         }
 
@@ -93,6 +94,7 @@ function generateBreadcrumbFromURL() {
                 url: 'projets.html',
                 isActive: true
             });
+            console.log('Items finaux:', items);
             return items;
         }
 
@@ -102,6 +104,7 @@ function generateBreadcrumbFromURL() {
                 url: 'exploration.html',
                 isActive: true
             });
+            console.log('Items finaux:', items);
             return items;
         }
 
@@ -111,6 +114,7 @@ function generateBreadcrumbFromURL() {
                 url: 'contact.html',
                 isActive: true
             });
+            console.log('Items finaux:', items);
             return items;
         }
     }
@@ -127,6 +131,7 @@ function generateBreadcrumbFromURL() {
             label: projectName,
             isActive: true
         });
+        console.log('Items finaux (projet):', items);
         return items;
     }
 
@@ -145,6 +150,7 @@ function generateBreadcrumbFromURL() {
                 label: projectName,
                 isActive: true
             });
+            console.log('Items finaux (EN projet):', items);
             return items;
         }
 
@@ -156,9 +162,11 @@ function generateBreadcrumbFromURL() {
                 isActive: true
             });
         }
+        console.log('Items finaux (EN):', items);
         return items;
     }
 
+    console.log('Items finaux (défaut):', items);
     return items;
 }
 
