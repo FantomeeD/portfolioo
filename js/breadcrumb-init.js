@@ -35,9 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * Calculer le chemin relatif vers la racine
  */
+
 function getBasePath() {
     const path = window.location.pathname;
-    const depth = path.split('/').filter(p => p && p !== 'index.html').length;
+    const pathParts = path.split('/').filter(p => p && p !== 'index.html');
+    
+    // Compter le nombre de niveaux de profondeur
+    let depth = 0;
+    for (let i = 0; i < pathParts.length; i++) {
+        // Ne pas compter le dernier élément (le fichier lui-même)
+        if (i < pathParts.length - 1 || pathParts[i].indexOf('.html') === -1) {
+            depth++;
+        }
+    }
     
     if (depth === 0) return '';
     return '../'.repeat(depth);
@@ -63,15 +73,14 @@ function generateBreadcrumbFromURL() {
     // Toujours ajouter l'accueil en premier
     items.push({
         label: 'Accueil',
-        url: basePath ? basePath + 'index.html' : 'index.html',
+        url: basePath + 'index.html',
         icon: 'home'
     });
 
     // Déterminer la structure basée sur le chemin
     
     // Pages racine
-    if (fileName === 'index.html' && pathParts.length === 0) {
-        // Page d'accueil - pas d'autres éléments
+     if (fileName === 'index.html' && pathParts.length === 0) {
         return items;
     }
     
@@ -103,46 +112,44 @@ function generateBreadcrumbFromURL() {
     }
 
     // Pages de projets (projets/XXX.html)
-    if (pathParts.includes('projets') && pathParts[pathParts.length - 1] !== 'projets') {
+     if (pathParts.includes('projets') && fileName !== 'projets.html') {
         items.push({
             label: 'Projets',
-            url: basePath + 'projets.html'
+            url: basePath + 'projets.html'  // ../projets.html depuis projets/fichier.html
         });
 
         const projectName = getProjectName(fileName);
         items.push({
             label: projectName,
-            url: '#',
             isActive: true
         });
         return items;
     }
 
-    // Pages en anglais (en/XXX.html)
+     // Pages en anglais
     if (pathParts[0] === 'en') {
+        items[0].label = 'Home';
+        items[0].url = basePath + 'index.html';
 
-        if (pathParts[1] === 'projets') {
-            items[0].label = 'Home';
-            items[0].url = basePath + 'index.html';
+        // Pages de projets en anglais (en/projets/XXX.html)
+        if (pathParts[1] === 'projets' && fileName !== 'projets.html') {
             items.push({
                 label: 'Projects',
-                url: basePath.replace('../', '') + 'en/projets.html'
+                url: basePath + 'projets.html'  // ../../projets.html depuis en/projets/fichier.html
             });
             const projectName = getProjectName(fileName);
             items.push({
                 label: projectName,
-                url: '#',
                 isActive: true
             });
             return items;
         }
 
+        // Autres pages en anglais (en/XXX.html)
         const enPageName = getEnglishPageName(fileName);
         if (enPageName) {
-            items[0].label = 'Home';
             items.push({
                 label: enPageName,
-                url: '#',
                 isActive: true
             });
         }
