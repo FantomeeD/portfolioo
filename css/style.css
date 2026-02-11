@@ -142,6 +142,11 @@ header {
 	justify-content: center;
 }
 
+.nav-prime{
+	display: flex;
+	gap: 20px;
+}
+
 .main-nav a {
 	color: var(--tiercary-color);
 	text-decoration: none;
