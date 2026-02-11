@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
+ * Calculer le chemin relatif vers la racine
+ */
+function getBasePath() {
+    const path = window.location.pathname;
+    const depth = path.split('/').filter(p => p && p !== 'index.html').length;
+    
+    if (depth === 0) return '';
+    return '../'.repeat(depth);
+}
+
+/**
  * Générer les données du breadcrumb selon la structure du site
  */
 function generateBreadcrumbFromURL() {
@@ -90,93 +101,68 @@ function generateBreadcrumbFromURL() {
         return items;
     }
 
-    // Pages de catégories (p_categories/XXX.html)
-    if (pathParts[0] === 'p_categories') {
-        items.push({
-            label: 'Projets',
-            url: 'projets.html'
-        });
-
-        const categoryName = getCategoryName(fileName);
-        items.push({
-            label: categoryName,
-            url: path,
-            isActive: true
-        });
-        return items;
-    }
-
     // Pages de projets (projets/XXX.html)
-    if (pathParts[0] === 'projets') {
+    if (pathParts.includes('projets') && pathParts[pathParts.length - 1] !== 'projets') {
         items.push({
             label: 'Projets',
-            url: 'projets.html'
+            url: basePath + 'projets.html'
         });
 
         const projectName = getProjectName(fileName);
         items.push({
             label: projectName,
-            url: path,
+            url: '#',
             isActive: true
         });
         return items;
     }
 
-    // Pages en anglais (en/XXX.html)
     if (pathParts[0] === 'en') {
+        if (pathParts[1] === 'p_categories') {
+            items[0].label = 'Home';
+            items[0].url = basePath + 'index.html';
+            items.push({
+                label: 'Projects',
+                url: basePath.replace('../', '') + 'en/projets.html'
+            });
+            const categoryName = getCategoryName(fileName);
+            items.push({
+                label: categoryName,
+                url: '#',
+                isActive: true
+            });
+            return items;
+        }
+
+        if (pathParts[1] === 'projets') {
+            items[0].label = 'Home';
+            items[0].url = basePath + 'index.html';
+            items.push({
+                label: 'Projects',
+                url: basePath.replace('../', '') + 'en/projets.html'
+            });
+            const projectName = getProjectName(fileName);
+            items.push({
+                label: projectName,
+                url: '#',
+                isActive: true
+            });
+            return items;
+        }
+
         const enPageName = getEnglishPageName(fileName);
         if (enPageName) {
+            items[0].label = 'Home';
             items.push({
                 label: enPageName,
-                url: path,
+                url: '#',
                 isActive: true
             });
         }
         return items;
     }
 
-    // Si page de langue (sous-dossier avec langue)
-    if (pathParts[0] === 'en' && pathParts[1] === 'p_categories') {
-        items.push({
-            label: 'Projects',
-            url: 'en/projets.html'
-        });
-        const categoryName = getCategoryName(fileName);
-        items.push({
-            label: categoryName,
-            url: path,
-            isActive: true
-        });
-        return items;
-    }
-
-    if (pathParts[0] === 'en' && pathParts[1] === 'projets') {
-        items.push({
-            label: 'Projects',
-            url: 'en/projets.html'
-        });
-        const projectName = getProjectName(fileName);
-        items.push({
-            label: projectName,
-            url: path,
-            isActive: true
-        });
-        return items;
-    }
-
     return items;
-}
-
-/**
- * Obtenir le nom d'une catégorie de projet
- */
-function getCategoryName(fileName) {
-    const categoryMap = {
-        'projets_g.html': 'Graphisme',
-        'projets_m.html': 'Motion Design',
-        'projets_md.html': 'Multimédia'
-    };
-    return categoryMap[fileName] || 'Catégorie';
 }
 
 /**
