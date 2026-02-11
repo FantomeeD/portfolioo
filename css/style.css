@@ -128,7 +128,9 @@ header {
 	padding-top: 20px;
 }
 
-.logo {
+.logo-main {
+	height: 60px;
+	text-align: center;
 	width: auto;
 }
 
