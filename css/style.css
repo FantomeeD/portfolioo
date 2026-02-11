@@ -139,12 +139,13 @@ header {
 }
 
 .main-nav {
-	justify-content: center;
+	justify-content: space-around;
 }
 
 .nav-prime{
 	display: flex;
-	gap: 20px;
+	justify-content: center;
+	gap: 10px;
 }
 
 .main-nav a {
