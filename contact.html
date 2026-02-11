@@ -50,14 +50,17 @@
 
         <section class="contact-form-section" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #ccc;">
             <h2>Formulaire de Contact</h2>
-            <form action="https://formsubmit.co/nolhandesseigne@free.fr" method="POST" style="max-width: 600px; margin-top: 1.5rem;">
+            <form id="contactForm" action="https://formsubmit.co/nolhandesseigne@free.fr" method="POST" style="max-width: 600px; margin-top: 1.5rem;">
                 <div class="mb-3">
                     <label for="name" class="form-label">Nom *</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email *</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" 
+                           pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" 
+                           title="Veuillez entrer une adresse email valide" required>
+                    <small class="form-text text-danger" id="emailError" style="display: none;">Email invalide. Veuillez vérifier votre adresse.</small>
                 </div>
                 <div class="mb-3">
                     <label for="subject" class="form-label">Sujet *</label>
@@ -85,6 +88,50 @@
 
         <p> 2024 © Copyright Nolhan DESSEIGNE All rights Reserved. </p>
     </footer>
+    
+    <script>
+        // Validation stricte des emails
+        const contactForm = document.getElementById('contactForm');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        
+        const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+        
+        emailInput.addEventListener('blur', function() {
+            validateEmail();
+        });
+        
+        emailInput.addEventListener('input', function() {
+            if (emailError.style.display === 'none') return;
+            validateEmail();
+        });
+        
+        function validateEmail() {
+            const email = emailInput.value.trim();
+            if (email === '') {
+                emailError.style.display = 'none';
+                return true;
+            }
+            
+            if (!emailRegex.test(email)) {
+                emailError.style.display = 'block';
+                emailInput.classList.add('is-invalid');
+                return false;
+            } else {
+                emailError.style.display = 'none';
+                emailInput.classList.remove('is-invalid');
+                return true;
+            }
+        }
+        
+        contactForm.addEventListener('submit', function(event) {
+            if (!validateEmail()) {
+                event.preventDefault();
+                emailInput.focus();
+            }
+        });
+    </script>
+    
     <script src="js/breadcrumb.js"></script>
     <script src="js/breadcrumb-init.js"></script>
 </body>
