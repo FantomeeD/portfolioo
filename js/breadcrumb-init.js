@@ -3,10 +3,10 @@
  * Génère automatiquement le fil d'Ariane selon la structure du site
  */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Créer le conteneur du breadcrumb s'il n'existe pas
     let breadcrumbContainer = document.getElementById('breadcrumb-container');
-    
+
     if (!breadcrumbContainer) {
         // Créer après le header
         const header = document.querySelector('header');
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Récupérer les données du breadcrumb depuis l'URL
     const breadcrumbData = generateBreadcrumbFromURL();
-    
+
     // Initialiser le breadcrumb
     if (window.BreadcrumbGenerator && breadcrumbData.length > 0) {
         new BreadcrumbGenerator('#breadcrumb-container', breadcrumbData, {
@@ -33,21 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Calculer le chemin relatif vers la racine
+ * Calculer le chemin relatif vers la racine du site
  */
 function getBasePath() {
     const path = window.location.pathname;
-    const pathParts = path.split('/').filter(p => p && p !== 'index.html');
-    
-    // Compter le nombre de niveaux de profondeur (sans compter le fichier)
-    let depth = 0;
-    for (let i = 0; i < pathParts.length; i++) {
-        // Ne pas compter le dernier élément si c'est un fichier .html
-        if (i < pathParts.length - 1 || !pathParts[i].endsWith('.html')) {
-            depth++;
-        }
-    }
-    
+
+    // Retirer le nom du fichier pour ne garder que les dossiers
+    const pathWithoutFile = path.substring(0, path.lastIndexOf('/') + 1);
+
+    // Compter le nombre de niveaux (nombre de /)
+    const depth = (pathWithoutFile.match(/\//g) || []).length - 1;
+
     if (depth === 0) return '';
     return '../'.repeat(depth);
 }
@@ -58,13 +54,14 @@ function getBasePath() {
 function generateBreadcrumbFromURL() {
     const path = window.location.pathname;
     let fileName = path.split('/').pop();
-    
+
     // Gérer le cas où fileName est vide (racine du site)
     if (!fileName || fileName === '') {
         fileName = 'index.html';
     }
-    
-    const pathParts = path.split('/').filter(p => p && p !== 'index.html');
+
+    // Extraire uniquement les parties pertinentes du chemin (après le dossier racine du site)
+    const pathParts = path.split('/').filter(p => p && p !== 'index.html' && p !== 'portfolioo');
     const basePath = getBasePath();
 
     console.log('=== DEBUG BREADCRUMB ===');
@@ -74,46 +71,48 @@ function generateBreadcrumbFromURL() {
     console.log('BasePath:', basePath);
     console.log('Items générés:', items);
     console.log('=======================');
-    
+
     const items = [];
-    
+
     // Toujours ajouter l'accueil en premier
     items.push({
         label: 'Accueil',
-        url: (basePath ? basePath : '') + 'index.html',
+        url: basePath + 'index.html',
         icon: 'home'
     });
 
-    // Pages racine
-    if (fileName === 'index.html' && pathParts.length === 0) {
-        return items;
-    }
-    
-    if (fileName === 'projets.html' && pathParts.length === 0) {
-        items.push({
-            label: 'Projets',
-            url: 'projets.html',
-            isActive: true
-        });
-        return items;
-    }
-    
-    if (fileName === 'exploration.html' && pathParts.length === 0) {
-        items.push({
-            label: 'Explorations',
-            url: 'exploration.html',
-            isActive: true
-        });
-        return items;
-    }
-    
-    if (fileName === 'contact.html' && pathParts.length === 0) {
-        items.push({
-            label: 'Contacts',
-            url: 'contact.html',
-            isActive: true
-        });
-        return items;
+    // Pages racine (dans le dossier portfolioo/)
+    if (pathParts.length === 0 || (pathParts.length === 1 && pathParts[0].endsWith('.html'))) {
+        if (fileName === 'index.html') {
+            return items;
+        }
+
+        if (fileName === 'projets.html') {
+            items.push({
+                label: 'Projets',
+                url: 'projets.html',
+                isActive: true
+            });
+            return items;
+        }
+
+        if (fileName === 'exploration.html') {
+            items.push({
+                label: 'Explorations',
+                url: 'exploration.html',
+                isActive: true
+            });
+            return items;
+        }
+
+        if (fileName === 'contact.html') {
+            items.push({
+                label: 'Contacts',
+                url: 'contact.html',
+                isActive: true
+            });
+            return items;
+        }
     }
 
     // Pages de projets (projets/XXX.html)
@@ -151,7 +150,7 @@ function generateBreadcrumbFromURL() {
 
         // Autres pages en anglais (en/XXX.html)
         const enPageName = getEnglishPageName(fileName);
-        if (enPageName && pathParts.length === 1) {
+        if (enPageName) {
             items.push({
                 label: enPageName,
                 isActive: true
@@ -180,10 +179,10 @@ function getProjectName(fileName) {
         'stage_wolfdog.html': 'Stage Wolfdog',
         'teaser_acc.html': 'Teaser ACC'
     };
-    
+
     const name = projectMap[fileName];
     if (name) return name;
-    
+
     // Fallback: convertir le nom du fichier
     return fileName
         .replace('.html', '')
