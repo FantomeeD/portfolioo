@@ -834,3 +834,11 @@ footer {
 .breadcrumb--hidden-tooltip .breadcrumb__link[title]:focus::after {
     opacity: 1;
 }
+
+.formulaire {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin: auto;
+}
