@@ -35,16 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
 /**
  * Calculer le chemin relatif vers la racine
  */
-
 function getBasePath() {
     const path = window.location.pathname;
     const pathParts = path.split('/').filter(p => p && p !== 'index.html');
     
-    // Compter le nombre de niveaux de profondeur
+    // Compter le nombre de niveaux de profondeur (sans compter le fichier)
     let depth = 0;
     for (let i = 0; i < pathParts.length; i++) {
-        // Ne pas compter le dernier élément (le fichier lui-même)
-        if (i < pathParts.length - 1 || pathParts[i].indexOf('.html') === -1) {
+        // Ne pas compter le dernier élément si c'est un fichier .html
+        if (i < pathParts.length - 1 || !pathParts[i].endsWith('.html')) {
             depth++;
         }
     }
@@ -68,19 +67,25 @@ function generateBreadcrumbFromURL() {
     const pathParts = path.split('/').filter(p => p && p !== 'index.html');
     const basePath = getBasePath();
 
+    console.log('=== DEBUG BREADCRUMB ===');
+    console.log('Path:', path);
+    console.log('FileName:', fileName);
+    console.log('PathParts:', pathParts);
+    console.log('BasePath:', basePath);
+    console.log('Items générés:', items);
+    console.log('=======================');
+    
     const items = [];
     
     // Toujours ajouter l'accueil en premier
     items.push({
         label: 'Accueil',
-        url: basePath + 'index.html',
+        url: (basePath ? basePath : '') + 'index.html',
         icon: 'home'
     });
 
-    // Déterminer la structure basée sur le chemin
-    
     // Pages racine
-     if (fileName === 'index.html' && pathParts.length === 0) {
+    if (fileName === 'index.html' && pathParts.length === 0) {
         return items;
     }
     
@@ -112,10 +117,10 @@ function generateBreadcrumbFromURL() {
     }
 
     // Pages de projets (projets/XXX.html)
-     if (pathParts.includes('projets') && fileName !== 'projets.html') {
+    if (pathParts.includes('projets') && fileName !== 'projets.html') {
         items.push({
             label: 'Projets',
-            url: basePath + 'projets.html'  // ../projets.html depuis projets/fichier.html
+            url: basePath + 'projets.html'
         });
 
         const projectName = getProjectName(fileName);
@@ -126,16 +131,15 @@ function generateBreadcrumbFromURL() {
         return items;
     }
 
-     // Pages en anglais
+    // Pages en anglais
     if (pathParts[0] === 'en') {
         items[0].label = 'Home';
-        items[0].url = basePath + 'index.html';
 
         // Pages de projets en anglais (en/projets/XXX.html)
-        if (pathParts[1] === 'projets' && fileName !== 'projets.html') {
+        if (pathParts.length >= 2 && pathParts[1] === 'projets' && fileName !== 'projets.html') {
             items.push({
                 label: 'Projects',
-                url: basePath + 'projets.html'  // ../../projets.html depuis en/projets/fichier.html
+                url: basePath + 'projets.html'
             });
             const projectName = getProjectName(fileName);
             items.push({
@@ -147,7 +151,7 @@ function generateBreadcrumbFromURL() {
 
         // Autres pages en anglais (en/XXX.html)
         const enPageName = getEnglishPageName(fileName);
-        if (enPageName) {
+        if (enPageName && pathParts.length === 1) {
             items.push({
                 label: enPageName,
                 isActive: true
