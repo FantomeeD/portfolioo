@@ -118,21 +118,6 @@ function generateBreadcrumbFromURL() {
     }
 
     if (pathParts[0] === 'en') {
-        if (pathParts[1] === 'p_categories') {
-            items[0].label = 'Home';
-            items[0].url = basePath + 'index.html';
-            items.push({
-                label: 'Projects',
-                url: basePath.replace('../', '') + 'en/projets.html'
-            });
-            const categoryName = getCategoryName(fileName);
-            items.push({
-                label: categoryName,
-                url: '#',
-                isActive: true
-            });
-            return items;
-        }
 
         if (pathParts[1] === 'projets') {
             items[0].label = 'Home';
