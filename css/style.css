@@ -167,7 +167,7 @@ header {
 	padding: 5px 10px;
 }
 
-/* Mobile Responsive Menu */
+/* Mobile Responsive Menu 
 @media (max-width: 768px) {
 	.hamburger-menu {
 		display: flex;
@@ -223,7 +223,7 @@ header {
 		padding: 15px;
 	}
 
-	/* Responsive Images and Media */
+	 Responsive Images and Media 
 	img {
 		max-width: 100%;
 		height: auto;
@@ -246,7 +246,7 @@ header {
 		padding: 10px 0 !important;
 	}
 
-	/* Responsive Typography */
+	 Responsive Typography 
 	h1 {
 		font-size: 24px;
 	}
@@ -265,7 +265,7 @@ header {
 		right: 20px;
 		bottom: 20px;
 	}
-}
+}*/
 
 /*---MAIN---*/
 
