@@ -271,6 +271,19 @@ header {
 		bottom: 20px;
 		display: none;
 	}
+
+	/* small screen tweaks for filter buttons */
+	.filter-buttons {
+		gap: 5px;
+		margin: 15px 0;
+		padding: 0 10px;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.filter-btn {
+		padding: 6px 12px;
+		font-size: 0.9rem;
+	}
 }
 
 /*---MAIN---*/
@@ -388,6 +401,15 @@ footer {
 .filter-buttons {
 	gap: 10px;
 	margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ensure buttons don’t shrink when container scrolls */
+.filter-buttons .filter-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
 }
 
 .filter-btn {
