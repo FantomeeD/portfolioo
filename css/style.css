@@ -269,6 +269,7 @@ header {
 		width: 50px;
 		right: 20px;
 		bottom: 20px;
+		display: none;
 	}
 }
 
