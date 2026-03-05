@@ -170,6 +170,7 @@ header {
 .hamburger-menu {
 	display: none;
 	color: var(--base-color);
+	size: 300px;
 }
 
 /* Mobile Responsive Menu */
