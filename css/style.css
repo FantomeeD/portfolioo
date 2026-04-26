@@ -167,6 +167,13 @@ header {
 	padding: 5px 10px;
 }
 
+.shoreel {
+	border: 2px solid var(--base-color);
+	border-radius: 100px;
+	padding: 5px 10px;
+	width: fit-content;
+}
+
 .hamburger-menu {
 	display: none;
 	color: var(--base-color);
