@@ -265,6 +265,7 @@ header {
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    margin: auto;
 }
 
 /* Effet de brillance (shimmer) sur le bouton CV */
