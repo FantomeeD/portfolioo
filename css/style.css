@@ -1540,3 +1540,169 @@ a.bento-card:focus-visible {
         height: 120px;
     }
 }
+
+/* ===== SECTIONS BENTO GRID ===== */
+
+.bento-section {
+    padding: 60px 20px;
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+    margin: 20px 0;
+}
+
+.bento-section h2 {
+    color: var(--base-color);
+    margin-bottom: 40px;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 300px;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bento-card {
+    background: linear-gradient(135deg, rgba(149, 154, 216, 0.08) 0%, rgba(149, 154, 216, 0.02) 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    border: 1px solid rgba(149, 154, 216, 0.1);
+}
+
+/* Carte cliquable = lien : reset de tous les styles anchor hérités */
+a.bento-card,
+main a.bento-card {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+a.bento-card:hover,
+a.bento-card:focus-visible {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.bento-card:focus-visible {
+    outline: 2px solid var(--base-color);
+    outline-offset: 4px;
+}
+
+.bento-card[onclick] {
+    cursor: pointer;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(149, 154, 216, 0.4);
+}
+
+.bento-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-wide {
+    grid-column: span 2;
+}
+
+.bento-tall {
+    grid-row: span 2;
+}
+
+.bento-card .card-image {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bento-card.bento-featured .card-image {
+    height: 70%;
+    flex-grow: 0;
+}
+
+.bento-card .card-image img,
+.bento-card .card-image iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    transition: transform 0.3s ease;
+}
+
+.bento-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.bento-card .card-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+.bento-card.bento-featured .card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(25, 25, 25, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(149, 154, 216, 0.2);
+    height: 30%;
+}
+
+.bento-card h3,
+.bento-card h5 {
+    color: var(--base-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.bento-card p {
+    color: var(--tertiary-color);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.bento-card .card-link {
+    color: var(--base-color);
+    text-decoration: none;
+    font-weight: 600;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.bento-card .card-link:hover {
+    opacity: 0.8;
+    transform: translateX(5px);
+}
