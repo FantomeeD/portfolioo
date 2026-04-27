@@ -249,7 +249,7 @@ header {
 }
 
 .showreel {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, var(--base-color) 0%, #aeb4ff 100%);
@@ -266,6 +266,7 @@ header {
     position: relative;
     overflow: hidden;
     margin: auto;
+    width: fit-content;
 }
 
 /* Effet de brillance (shimmer) sur le bouton CV */
