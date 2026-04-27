@@ -82,7 +82,6 @@ footer {
     margin: auto;
 }
 
-
 /* ==========================================================================
    ANIMATION DE LA FLÈCHE DE DÉFILEMENT (SCROLL ARROW)
    ========================================================================== */
@@ -128,6 +127,7 @@ footer {
         transform: rotate(45deg) translate(20px, 20px);
     }
 }
+
 /* ==========================================================================
    EN-TÊTE (HEADER & NAVIGATION)
    ========================================================================== */
@@ -255,6 +255,7 @@ header {
     cursor: pointer;
     z-index: 1000;
 }
+
 /* ==========================================================================
    CONTENU PRINCIPAL (MAIN)
    ========================================================================== */
@@ -563,7 +564,7 @@ footer {
     transform: translateY(-3px);
 }
 
-/* ===== SECTIONS BENTO GRID ===== */
+/* ===== SECTIONS BENTO GRID 
 
 .bento-section {
     padding: 60px 20px;
@@ -599,7 +600,7 @@ footer {
     border: 1px solid rgba(149, 154, 216, 0.1);
 }
 
-/* Carte cliquable = lien : reset de tous les styles anchor hérités */
+ Carte cliquable = lien : reset de tous les styles anchor hérités 
 a.bento-card,
 main a.bento-card {
     color: inherit;
@@ -728,7 +729,7 @@ a.bento-card:focus-visible {
     opacity: 0.8;
     transform: translateX(5px);
 }
-
+*/
 /* ============================================
    COMPOSANT BREADCRUMB (FIL D'ARIANE)
    ============================================ */
@@ -1304,5 +1305,196 @@ a.bento-card:focus-visible {
         content: '…';
         margin-right: 0.3rem;
         color: var(--breadcrumb-separator-color);
+    }
+}
+
+/* Carrousel Container */
+.projects-carousel {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    
+    /* Custom scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--base-color) var(--seconddary-color);
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.projects-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.projects-carousel::-webkit-scrollbar-track {
+    background: var(--seconddary-color);
+}
+
+.projects-carousel::-webkit-scrollbar-thumb {
+    background: var(--base-color);
+    border-radius: 4px;
+}
+
+.projects-carousel::-webkit-scrollbar-thumb:hover {
+    background: #7b7fbc;
+}
+
+/* Project Cards */
+.project-card-horizontal {
+    min-width: 350px;
+    max-width: 350px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    
+    background: linear-gradient(135deg, rgba(149, 154, 216, 0.1) 0%, rgba(149, 154, 216, 0.05) 100%);
+    border: 2px solid var(--base-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: grab;
+}
+
+.project-card-horizontal:active {
+    cursor: grabbing;
+}
+
+.project-card-horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(149, 154, 216, 0.3);
+    border-color: #7b7fbc;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-image iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.project-card-horizontal:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-info h5 {
+    color: var(--base-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.card-info p {
+    color: var(--tiercary-color);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.card-link {
+    color: var(--base-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.card-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--base-color);
+    transition: width 0.3s ease;
+}
+
+.card-link:hover::after {
+    width: 100%;
+}
+
+.card-link:hover {
+    color: #7b7fbc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-card-horizontal {
+        min-width: 280px;
+        max-width: 280px;
+    }
+    
+    .projects-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .scroll-hint {
+        font-size: 0.8rem;
+    }
+    
+    .card-info {
+        padding: 15px;
+    }
+    
+    .card-image {
+        height: 150px;
+    }
+    
+    .card-info h5 {
+        font-size: 1rem;
+    }
+    
+    .card-info p {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-carousel {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .project-card-horizontal {
+        min-width: 240px;
+        max-width: 240px;
+    }
+    
+    .card-image {
+        height: 120px;
     }
 }
