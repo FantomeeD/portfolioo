@@ -55,37 +55,67 @@
         </section>
     </header>
 
-    <a href="#" class="bouton_up" aria-label="boutton pour remonter en haut de la page">
+    <!-- Bouton pour remonter en haut de page -->
+    <a href="#" class="bouton_up" aria-label="Remonter en haut de page">
         <span class="icone accueil" aria-hidden="true"></span>
         <span class="hors-ecran">Accueil</span>
         <i class="bi bi-caret-up-fill"></i>
     </a>
 
     <main>
-        <section class="container">
-            <div>
-                <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <div class="col">
-                        <img src="images/pdp_linkedin_trasparent.png" class="rounded-circle">
+        <!-- Section Héro -->
+        <section class="container my-5 py-5 hero-section">
+            <div class="row align-items-center g-5">
+                <div class="col-md-5 text-center position-relative hero-img-col">
+                    <div class="hero-img-glow"></div>
+
+                    <!--
+                    ═══════════════════════════════════════════════
+                    SHOWREEL : quand il est prêt, remplace le bloc
+                    <img> ci-dessous par ce bloc <iframe> :
+
+                    <div class="hero-video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/TON_ID_ICI?autoplay=1&mute=1&loop=1&playlist=TON_ID_ICI&controls=0&modestbranding=1"
+                            title="Showreel Nolhan Desseigne"
+                            frameborder="0"
+                            allow="autoplay; encrypted-media"
+                            allowfullscreen
+                            class="hero-video">
+                        </iframe>
                     </div>
-                    <div class="col">
-                        <h6>Créatif, Determiné, Curieux</h6>
-                        <h7>Nolhan Desseigne Monteur / Motion Designer</h7>
-                        <p class="text-start">
-                            Actuellement en 3ᵉ année de BUT Métiers du Multimédia et de l’Internet à Haguenau, je
-                            développe mes compétences en vidéo, son, post‑production, motion design et graphisme.
-                        </p>
-                        <p class="text-start">
-                            Créatif et passionné, je réalise des vidéos, dessine et m’intéresse aux jeux vidéo, à la
-                            programmation et au cinéma, notamment Star Wars.
-                        </p>
-                        <p class="text-start">
-                            De 2020 à 2023, j’ai étudié aux États‑Unis (anglais C1), participé au journal du lycée, créé
-                            des jeux VR avec Unity et réalisé des projets 3D sur AutoCAD, enrichissant mes compétences
-                            et
-                            mes projets.
-                        </p>
+                    ═══════════════════════════════════════════════
+                    -->
+
+                    <img src="images/pdp_linkedin_trasparent.png" alt="Portrait de Nolhan Desseigne"
+                        class="img-fluid rounded-circle hero-img" style="max-width: 350px;">
+
+                    <div class="hero-tools">
+                        <span class="hero-tool-icon" data-icon="adobepremierepro" data-color="#9999FF" title="Premiere Pro" role="img" aria-label="Adobe Premiere Pro"></span>
+                        <span class="hero-tool-icon" data-icon="adobeaftereffects" data-color="#9999FF" title="After Effects" role="img" aria-label="Adobe After Effects"></span>
+                        <span class="hero-tool-icon" data-icon="davinciresolve" data-color="#7FBBE0" title="DaVinci Resolve" role="img" aria-label="DaVinci Resolve"></span>
+                        <span class="hero-tool-icon" data-icon="blender" data-color="#E87D0D" title="Blender" role="img" aria-label="Blender"></span>
+                        <span class="hero-tool-icon" data-icon="adobephotoshop" data-color="#31A8FF" title="Photoshop" role="img" aria-label="Adobe Photoshop"></span>
+                        <span class="hero-tool-icon" data-icon="adobeillustrator" data-color="#FF9A00" title="Illustrator" role="img" aria-label="Adobe Illustrator"></span>
+                        <span class="hero-tool-icon" data-icon="canva" data-color="#00C4CC" title="Canva" role="img" aria-label="Canva"></span>
                     </div>
+                </div>
+                <div class="col-md-7 hero-text-col">
+                    <p class="eyebrow">Créatif, Déterminé, Curieux</p>
+                    <h1 class="hero-title">Nolhan Desseigne<br /><span class="text-gradient">Monteur / Motion Designer</span></h1>
+                    <p class="text-start hero-p">
+                        Actuellement en 3ᵉ année de BUT Métiers du Multimédia et de l'Internet à Haguenau, je
+                        développe mes compétences en vidéo, son, post-production, motion design et graphisme.
+                    </p>
+                    <p class="text-start hero-p">
+                        Créatif et passionné, je réalise des vidéos, dessine et m'intéresse aux jeux vidéo, à la
+                        programmation et au cinéma, notamment Star Wars.
+                    </p>
+                    <p class="text-start hero-p">
+                        De 2020 à 2023, j'ai étudié aux États-Unis (anglais C1), participé au journal du lycée, créé
+                        des jeux VR avec Unity et réalisé des projets 3D sur AutoCAD, enrichissant mes compétences
+                        et mes projets.
+                    </p>
                 </div>
             </div>
         </section>
