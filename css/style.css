@@ -506,6 +506,11 @@ footer {
     margin: 0 15px;
 }
 
+footer p a {
+    text-decoration: underline;
+    color : var(--base-color);
+}
+
 /* Style pour les boutons de filtrage */
 .filter-buttons {
     gap: 8px;
