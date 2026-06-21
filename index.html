@@ -126,11 +126,11 @@
                 </div>
                 <div class="col-md-7 hero-text-col">
                     <p class="eyebrow">Créatif, Déterminé, Curieux</p>
-                    <h1 class="hero-title">Nolhan Desseigne<br /><span class="text-gradient">Monteur / Motion
-                            Designer</span></h1>
+                    <h1 class="hero-title">Nolhan Desseigne<br /> <!--<span class="text-gradient">Monteur / Motion
+                            Designer</span></h1> -->
                     <p class="text-start hero-p">
                         Actuellement en 3ᵉ année de BUT Métiers du Multimédia et de l'Internet à Haguenau, je
-                        développe mes compétences en vidéo, son, post-production, motion design et graphisme.
+                        développe mes compétences en communication, vidéo, son, post-production, motion design et graphisme.
                     </p>
                     <p class="text-start hero-p">
                         Créatif et passionné, je réalise des vidéos, dessine et m'intéresse aux jeux vidéo, à la
@@ -448,21 +448,7 @@
             });
         }
     </script>
-    <script>
-        // Injection inline des SVGs Simple Icons pour contrôle couleur CSS
-        const CDN = 'https://cdn.jsdelivr.net/npm/simple-icons@13/icons/';
-        document.querySelectorAll('.hero-tool-icon[data-icon]').forEach(el => {
-            fetch(CDN + el.dataset.icon + '.svg')
-                .then(r => r.text())
-                .then(svg => {
-                    el.innerHTML = svg;
-                    // Hover : couleur de marque
-                    el.addEventListener('mouseenter', () => { el.style.color = el.dataset.color; });
-                    el.addEventListener('mouseleave', () => { el.style.color = ''; });
-                })
-                .catch(() => { el.textContent = el.title; }); // Fallback texte si CDN KO
-        });
-    </script>
+    <script src="js/svg-inject.js"></script>
     <script src="js/header-responsive.js"></script>
     <script src="js/breadcrumb.js"></script>
     <script src="js/breadcrumb-init.js"></script>
